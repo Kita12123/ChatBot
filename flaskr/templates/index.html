@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h3>
+      あなた
+    </h3>
+    <form method="post">
+      <input type="text" width="50%" name="request">
+    </form>
+    <h3>
+      BOT
+    </h3>
+    <p>{{ reply|safe }}</p>
+    <br>
+    <h3>
+      履歴
+    </h3>
+    {% for his in history %}
+      {% if his.role == "user" %}
+        <p>あなた : {{ his.content }}</p>
+      {% elif his.role == "assistant" %}
+        <p>BOT : {{ his.content }}</p>
+      {% endif %}
+    {% endfor %}
+  </body>
+</html>
