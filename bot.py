@@ -8,13 +8,21 @@ openai.api_key = os.environ.get("OPENAI_SECRET_KEY")
 
 class Bot:
 
+    def __init__(self, message: str):
+        self.completion = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"rolw": "user", "content": message}
+            ]
+        )
+
     def system(self, *args):
         self.system_messages = [
             {"role": "system", "content": text}
             for text in args
         ]
 
-    def talk(self, message: str, /) -> str:
+    def chat(self, message: str, /) -> str:
         completion = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
