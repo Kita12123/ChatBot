@@ -8,7 +8,7 @@ openai.api_key = os.environ.get("OPENAI_SECRET_KEY")
 
 class Bot:
 
-    def __init__(self, *args):
+    def system(self, *args):
         self.system_messages = [
             {"role": "system", "content": text}
             for text in args
