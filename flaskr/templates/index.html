@@ -3,29 +3,44 @@
   <head>
     <meta charset="UTF-8">
     <title>ChatBot</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
     <h3>
       あなた
     </h3>
     <form method="post">
-      <input type="text" width="50%" name="request">
+      <textarea name="request" cols="100" rows="5"></textarea>
+      <br>
+      <input type="submit" width="100px" name="送信" onclick="Loading()">
     </form>
-    <h3>
-      BOT
-    </h3>
-    <p>{{ reply|safe }}</p>
+    <p>
+      <img src="{{ url_for('static', filename='waifu.png') }}" width="100px">
+      <!--思考中-->
+      <div id="repling" style="display: none;">
+        <div class="ball-pulse"><div></div><div></div><div></div></div>
+      </div>
+      <div id="reply">
+        {{ reply|safe }}
+      </div>
+    </p>
     <br>
     <h3>
       履歴
     </h3>
     {% for his in history %}
       {% if his.role == "user" %}
-        <p>あなた : {{ his.content }}</p>
+        <p>
+          あなた<br>
+          {{ his.content }}
+        </p>
       {% elif his.role == "assistant" %}
-        <p>BOT : {{ his.content }}</p>
+        <p>
+          BOT<br>
+          {{ his.content }}
+        </p>
       {% endif %}
     {% endfor %}
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>
