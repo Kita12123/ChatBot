@@ -1,4 +1,39 @@
+html {
+    background: #769ece;
+}
 
+/* talk */
+#main-content {
+    background-color: #769ece;
+}
+
+/* form */
+.chat-form {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #FFFFEF;
+}
+.chat-form > .message {
+    width: 100%;
+    margin-top: 15px;
+    font-size: 16px;
+}
+.chat-form > .ok-button {
+    display: none;
+}
+/* モバイル用 */
+@media only screen and (max-width: 1000px) {
+    .chat-form {
+        height: 120px;
+    }
+    .chat-form > .message {
+        font-size: 40px;
+    }
+}
 
 /*
 思考中

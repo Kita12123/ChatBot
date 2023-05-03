@@ -1,8 +1,10 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import send_file
+from flask import url_for
 
-from bot import Bot
+from apps.bot import Bot
 
 app = Flask(__name__)
 bot = Bot("出来る限り１００文字以内で返答してください。")
@@ -28,9 +30,8 @@ def index():
     )
 
 
-if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",
-        port=80,
-        debug=True,
+@app.route('/favicon.ico')
+def favicon():
+    return send_file(
+        url_for("static", filename="favicon.ico")
     )
