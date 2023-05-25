@@ -15,7 +15,7 @@ class Bot:
             for arg in args
         ]
 
-    def chat(self, request: str, /) -> str:
+    def chat(self, request: str) -> str:
         self.history.append({"role": "user", "content": request})
         completion = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
