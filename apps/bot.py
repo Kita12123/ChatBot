@@ -13,6 +13,8 @@ class Bot:
         self.history = [
             {"role": "system", "content": arg}
             for arg in args
+        ] + [
+            {"role": "assistant", "content": "ようこそ。なんでもおっしゃってください!!"}
         ]
 
     def chat(self, request: str) -> str:
@@ -25,6 +27,13 @@ class Bot:
             reply = completion.choices[0].message.content
         except (openai.error.RateLimitError):
             reply = "ごめんなさい。エラーが発生しました。\n時間をおいてからもう一度お願いします。"
+        reply = reply.replace(
+            "\n", "<br>"    # 改行
+        ).replace(
+            " ", "&nbsp;"   # 半角スペース
+        ).replace(
+            "　", "&emsp;"  # 全角スペース
+        )
         self.history.append({"role": "assistant", "content": reply})
         return reply
 

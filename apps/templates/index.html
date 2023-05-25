@@ -10,7 +10,9 @@
   {% elif his.role == "assistant" %}
   <div class="speech_bubble left">
     <img class="icon" src="{{ url_for('static', filename='waifu.png') }}" />
-    {{ his.content}}
+    {% autoescape False %}
+    {{ his.content }}
+    {% endautoescape %}
   </div>
   {% endif %}
   {% endfor %}

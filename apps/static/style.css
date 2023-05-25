@@ -1,12 +1,18 @@
 html {
+  height: 100%;
   background: #769ece;
 }
 body {
   margin: 0;
+  height: 100%;
   overflow: hidden; /* Hide scrollbars */
 }
 h1 {
   margin: 0;
+}
+h1 > a {
+  color: white;
+  text-decoration: none;
 }
 
 /* Header */
@@ -15,6 +21,10 @@ h1 {
   color: white;
   text-align: center;
   position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
   width: 100%;
   z-index: 1000;
   height: 50px;
@@ -22,24 +32,21 @@ h1 {
 
 /* talk */
 #main-content {
-    background-color: #769ece;
-    margin-top: 50px;
-    margin-bottom: 60px;
-}
-.scroll_bar{
-  background-color: #f0f0f0;
+  background-color: #769ece;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  height: 670px;
   overflow-y: scroll;
   /* ビヨヨン効果を無効化する */
   overscroll-behavior: none;
-  height: 250px;
 }
-.scroll_bar::-webkit-scrollbar{
+#main-content::-webkit-scrollbar{
   width: 10px;
 }
-.scroll_bar::-webkit-scrollbar-track{
+#main-content::-webkit-scrollbar-track{
   background-color: #ccc;
 }
-.scroll_bar::-webkit-scrollbar-thumb{
+#main-content::-webkit-scrollbar-thumb{
   background-color: #17585d;
 }
 
@@ -64,6 +71,9 @@ h1 {
 }
 /* モバイル用 */
 @media only screen and (max-width: 1000px) {
+    #main-content {
+      height: 610px;
+    }
     .chat-form {
         height: 120px;
     }

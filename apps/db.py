@@ -14,7 +14,7 @@ class TaskHistory:
         self.data = ""
 
     @property
-    def db(self) -> dict[str, str]:
+    def db(self):
         with open(file=self.file_path, mode="r", encoding="cp932") as f:
-            db = json.load(f)
+            db: dict[str, str] = json.load(f)
         return db
