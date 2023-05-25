@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}対話画面{% endblock %}
+{% block title %}ChatBot{% endblock %}
 {% block content %}
 <div class="talk line">
   {% for his in history %}
@@ -26,8 +26,4 @@
     </div>
   </div><!--loading-->
 </div>
-<form class="chat-form" method="post">
-  <input id="message" class="message" name="request" placeholder="メッセージを入力" autofocus/>
-  <input style="display: none;" type="submit" name="送信" onclick="Loading()"/>
-</form>
 {% endblock %}

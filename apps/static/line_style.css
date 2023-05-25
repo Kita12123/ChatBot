@@ -14,9 +14,6 @@ https://jisuijisan.com/speech-bubble/
     font-size: 16px;
     color: #333;
     line-height: 1.4;
-    overflow: scroll;
-    /* ビヨヨン効果を無効化する */
-    overscroll-behavior: none;
 }
 /*フキダシ共通*/
 .talk.line .speech_bubble {

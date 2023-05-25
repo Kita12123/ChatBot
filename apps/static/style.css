@@ -1,10 +1,46 @@
 html {
-    background: #769ece;
+  background: #769ece;
+}
+body {
+  margin: 0;
+  overflow: hidden; /* Hide scrollbars */
+}
+h1 {
+  margin: 0;
+}
+
+/* Header */
+#header {
+  background-color: #273246;
+  color: white;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  height: 50px;
 }
 
 /* talk */
 #main-content {
     background-color: #769ece;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+.scroll_bar{
+  background-color: #f0f0f0;
+  overflow-y: scroll;
+  /* ビヨヨン効果を無効化する */
+  overscroll-behavior: none;
+  height: 250px;
+}
+.scroll_bar::-webkit-scrollbar{
+  width: 10px;
+}
+.scroll_bar::-webkit-scrollbar-track{
+  background-color: #ccc;
+}
+.scroll_bar::-webkit-scrollbar-thumb{
+  background-color: #17585d;
 }
 
 /* form */
@@ -16,6 +52,7 @@ html {
     width: 100%;
     height: 60px;
     background-color: #FFFFEF;
+    z-index: 1000;
 }
 .chat-form > .message {
     width: 100%;
