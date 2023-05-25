@@ -2,7 +2,6 @@ from flask import Flask
 from flask import render_template
 from flask import request
 from flask import send_file
-from flask import url_for
 from pathlib import Path
 
 from apps.bot import Bot
@@ -14,10 +13,7 @@ bot = Bot("出来る限り１００文字以内で返答してください。")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method == "GET":
-        global bot
-        bot = Bot("出来る限り１００文字以内で返答してください。")
-    elif request.method == "POST":
+    if request.method == "POST":
         req = request.form.get("request")
         bot.chat(req)
     return render_template(
