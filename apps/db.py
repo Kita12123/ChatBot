@@ -1,20 +1,18 @@
 """
 会話データ保存
 """
-import json
+import pickle
 from pathlib import Path
 
-CD = Path(__file__).parent
+file_path = Path(__file__).parent / "static" / "history.txt"
 
-class TaskHistory:
 
-    file_path = CD / "database.json"
+def input_history():
+    with open(file=file_path, mode="rb") as f:
+        history = pickle.load(f)
+    return history
 
-    def __init__(self):
-        self.data = ""
 
-    @property
-    def db(self):
-        with open(file=self.file_path, mode="r", encoding="cp932") as f:
-            db: dict[str, str] = json.load(f)
-        return db
+def output_history(history):
+    with open(file=file_path, mode="wb") as f:
+        pickle.dump(history, f)
