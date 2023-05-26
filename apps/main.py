@@ -43,6 +43,7 @@ def index():
     if request.method == "POST":
         req = request.form.get("request")
         if req == "初期化":
+            db.output_history(history_default)
             return render_template(
                 "index.html",
                 history=history_default
