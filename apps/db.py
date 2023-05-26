@@ -4,7 +4,9 @@
 import pickle
 from pathlib import Path
 
-file_path = Path(__file__).parent / "static" / "history.txt"
+from apps.main import app
+
+file_path = Path(app.root_path) / "static" / "history.txt"
 
 
 def input_history():

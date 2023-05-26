@@ -4,11 +4,10 @@ from flask import request
 from flask import send_file
 from pathlib import Path
 
+app = Flask(__name__)
+
 from apps import bot
 from apps import db
-
-
-app = Flask(__name__)
 
 
 def to_system_json(text):
@@ -66,5 +65,5 @@ def index():
 @app.route('/favicon.ico')
 def favicon():
     return send_file(
-        Path(__file__).parent / "static" / "favicon.ico"
+        Path(app.root_path) / "static" / "favicon.ico"
     )
